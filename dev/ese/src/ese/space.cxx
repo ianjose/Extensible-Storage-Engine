@@ -8641,13 +8641,13 @@ ERR ErrSPCaptureSpaceTreePages( FUCB* const pfucbParent, FCB* pfcb, CPG* pcpgSna
     Assert( rgNonLeafPgnos[cpgNonLeafPgnos - 1] == pgnoNull );
 
     cpgno   = cpgLeafPgnos + cpgNonLeafPgnos - 2;
-    rgPgnos = new PGNO[cpgno];
+    Alloc( rgPgnos = new PGNO[cpgno] );
 
     // Ignore the pgnoNull
     memcpy( rgPgnos, rgNonLeafPgnos, ( cpgNonLeafPgnos - 1 ) * sizeof( PGNO ) );
     memcpy( rgPgnos + cpgNonLeafPgnos - 1, rgLeafPgnos, ( cpgLeafPgnos - 1 ) * sizeof( PGNO ) );
 
-    std::sort( rgPgnos, rgPgnos + cpgno - 1, CmpPgno );
+    std::sort( rgPgnos, rgPgnos + cpgno, CmpPgno );
 
     // Find if there is any continuous extent in space tree. Also capture preimage if needed.
     for ( LONG ipg = 0; ipg < cpgno; ++ipg )

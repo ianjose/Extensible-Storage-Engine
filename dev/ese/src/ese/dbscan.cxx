@@ -3981,7 +3981,7 @@ ERR DBMScanObserverCleanup::ErrCleanupPrimaryPage_( CSR * const pcsr, DBMObjectC
 
                 // Extract the bookmark
                 // Call ErrBTDelete
-                unique_ptr<BYTE> pbBookmark( new BYTE[kdf.key.Cb()] );
+                unique_ptr<BYTE[]> pbBookmark( new BYTE[kdf.key.Cb()] );
                 Alloc( pbBookmark.get() );
                 kdf.key.CopyIntoBuffer( pbBookmark.get(), kdf.key.Cb() );
                 

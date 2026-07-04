@@ -2605,7 +2605,7 @@ HandleError:
     Expected( err >= JET_errSuccess || *ppKey == NULL );
     if ( err < JET_errSuccess )
     {
-        delete *ppKey;
+        delete[] *ppKey;
         *ppKey = NULL;
         *pcKey = 0;
     }
@@ -3050,7 +3050,7 @@ ERR ErrIsamIPrereadIndexRanges(
     {
         if ( grbit & JET_bitPrereadNormalizedKey )
         {
-            if ( rgIndexRanges[iindexrangeT].cStartColumns != 1 &&
+            if ( rgIndexRanges[iindexrangeT].cStartColumns != 1 ||
                  rgIndexRanges[iindexrangeT].cEndColumns > 1 )
             {
                 Error( ErrERRCheck( JET_errInvalidParameter ) );
