@@ -5170,7 +5170,7 @@ ERR ErrRECGetLVSize(
 
         Assert( FIsLVChunkKey( pfucbLV->kdfCurr.key ) );
         *pcbLVDataPhysical  += pfucbLV->kdfCurr.data.Cb();
-        *pcbLVOverhead      += ( CPAGE::cbInsertionOverhead + cbKeyCount + pfucb->kdfCurr.key.Cb() );
+        *pcbLVOverhead      += ( CPAGE::cbInsertionOverhead + cbKeyCount + pfucbLV->kdfCurr.key.Cb() );
 
         ulOffset += pfucb->u.pfcb->Ptdb()->CbLVChunkMost();
     }

@@ -6493,7 +6493,7 @@ LOCAL ERR ErrCATIBuildFIELDArray(
         if ( fFixedColumn )
         {
             Assert( FidOfColumnid( columnid ) >= ptdb->FidFixedFirst() );
-            Assert( FidOfColumnid( columnid ) <= ptdb->FidTaggedLast() );
+            Assert( FidOfColumnid( columnid ) <= ptdb->FidFixedLast() );
         }
 
         if ( !FNegTest( fInvalidAPIUsage ) && FFIELDFinalize( field.ffield ) && !s_fLimitFinalizeFfieldNyi )

@@ -6484,7 +6484,7 @@ ERR CRBSRevertContext::ErrRemoveRBSAfterRevert()
     ERR     err         = JET_errSuccess;
 
     // Backup all the RBS generations we have applied in case we need them for investigation later.
-    for ( LONG rbsGenToBackup = m_lRBSMaxGenToApply; rbsGenToBackup >= m_lRBSMaxGenToApply; --rbsGenToBackup )
+    for ( LONG rbsGenToBackup = m_lRBSMaxGenToApply; rbsGenToBackup >= m_lRBSMinGenToApply; --rbsGenToBackup )
     {
         if ( m_fRevertCancelled )
         {
