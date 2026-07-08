@@ -1733,6 +1733,8 @@ CDBMScanFollower::CDBMScanFollower()
     m_pstate = NULL;
     m_pscanobsFileCheck = NULL;
     m_pscanobsLgriEvents = NULL;
+    m_pscanobsPerfmon = NULL;
+    m_cFollowerSkipsPrePass = 0;
 }
 
 CDBMScanFollower::~CDBMScanFollower()
